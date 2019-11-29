@@ -1,1 +1,1 @@
-const carsApi = 'http://localhost:8080/';
+export const carsApi = 'http://localhost:8080/';
