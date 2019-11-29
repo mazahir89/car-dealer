@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/car.service';
+import { GiphyService } from 'src/app/services/giphy.service';
 
 @Component({
   selector: 'app-car-list',
@@ -10,7 +11,7 @@ export class CarListComponent implements OnInit {
 
   cars: Array<any>;
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private giphyService: GiphyService) { }
 
   ngOnInit() {
 
@@ -20,7 +21,11 @@ export class CarListComponent implements OnInit {
   getAllCars() {
     return this.carService.getAllCars().subscribe(cars => {
       this.cars = cars;
-    })
+      for(const car of this.cars) {
+        this.giphyService.get(car.name)
+        .subscribe(url => car.giphyUrl = url);
+      }
+    });
   }
 
 }
