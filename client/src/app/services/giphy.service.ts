@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { giphyApi } from '../api-const';
+import { giphyApi } from './../api-constants';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class GiphyService {
   constructor(private http: HttpClient) { }
 
   get(searchTerm) {
-    const apiLink = giphyApi + searchTerm + " car";
+    const apiLink = giphyApi + searchTerm + " sport automobile";
 
     
 

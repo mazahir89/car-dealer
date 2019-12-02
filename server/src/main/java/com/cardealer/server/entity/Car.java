@@ -1,20 +1,16 @@
 package com.cardealer.server.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Data
-@NoArgsConstructor
-@Entity
+@Document(collection = "Car")
 public class Car {
 
     @Id @GeneratedValue
-    private Long id;
+    private String id;
     private @NonNull String name;
 
     public void setName(String name) {
@@ -23,5 +19,9 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
     }
 }

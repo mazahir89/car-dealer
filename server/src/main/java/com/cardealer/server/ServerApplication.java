@@ -1,8 +1,5 @@
 package com.cardealer.server;
 
-import com.cardealer.server.entity.Car;
-import com.cardealer.server.repository.CarRepository;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -13,7 +10,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Collections;
-import java.util.stream.Stream;
 
 @SpringBootApplication
 public class ServerApplication {
@@ -22,19 +18,19 @@ public class ServerApplication {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 
-	@Bean
-	ApplicationRunner init(CarRepository carRepository) {
+/*	@Bean
+	ApplicationRunner init(CarRepositoryI carRepositoryI) {
 		return args -> {
 			Stream.of("Ferrari", "Jaguar", "Porsche", "Lamborghini", "Bugatti",
 					"AMC Gremlin", "Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
 				Car car = new Car();
 				car.setName(name);
-				carRepository.save(car);
+				carRepositoryI.save(car);
 			});
-			carRepository.findAll().forEach(System.out::println);
+			carRepositoryI.findAll().forEach(System.out::println);
 		};
 
-	}
+	}*/
 
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilter() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import  { carsApi } from './../api-const';
+import  { CARS_API } from './../api-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,8 @@ export class CarService {
 
   getAllCars(): Observable<any> {
 
-    return this.http.get(carsApi + "cars");
+    return this.http.get(CARS_API);
   }
+
+  
 }
