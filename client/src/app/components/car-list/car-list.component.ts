@@ -22,7 +22,7 @@ export class CarListComponent implements OnInit {
     return this.carService.getAllCars().subscribe(cars => {
       this.cars = cars;
       for(const car of this.cars) {
-        this.giphyService.get(car.name)
+        this.giphyService.get(car.brand + " - " + car.model)
         .subscribe(url => car.giphyUrl = url);
       }
     });
