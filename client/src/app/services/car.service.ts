@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import  { CARS_API, getCarByIdAPI, updateCarApi, deleteCarByIdAPI } from './../api-constants';
+import  { CARS_API, getCarByIdAPI, updateCarApi, deleteCarByIdAPI, addCarApi } from './../api-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,10 @@ export class CarService {
       alert("Something is wrong!")
     }
     return result;
+  }
+  
+  addCar(car: any): Observable<any> {
+   return this.http.post(addCarApi, car);
   }
 
   remove(carId: string) {

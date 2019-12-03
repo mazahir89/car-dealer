@@ -1,0 +1,64 @@
+<mat-card>
+        <form #carForm="ngForm" (ngSubmit)="add(carForm.value)">
+            <mat-card-header>
+                <mat-card-title>
+                    <h2>Add Car</h2>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input type="hidden" name="href" [(ngModel)]="car.href">
+    
+                <mat-form-field>
+                    <input matInput placeholder="Car Brand" [(ngModel)]="car.brand" required name="brand" #brand>
+                </mat-form-field>
+            </mat-card-content>
+    
+    
+            <mat-card-content>
+                <input type="hidden" name="href" [(ngModel)]="car.href">
+    
+                <mat-form-field>
+                    <input matInput placeholder="Car Model" [(ngModel)]="car.model" required name="model" #model>
+                </mat-form-field>
+            </mat-card-content>
+    
+            <mat-card-content>
+                <input type="hidden" name="href" [(ngModel)]="car.href">
+    
+                <mat-form-field>
+                    <input matInput placeholder="Car Year" [(ngModel)]="car.year" required name="year" #year>
+                </mat-form-field>
+            </mat-card-content>
+    
+            <mat-card-content>
+                <input type="hidden" name="href" [(ngModel)]="car.href">
+    
+                <mat-form-field>
+                    <input matInput placeholder="Car Km" [(ngModel)]="car.km" required name="km" #km>
+                </mat-form-field>
+            </mat-card-content>
+    
+            <mat-card-content>
+                <input type="hidden" name="href" [(ngModel)]="car.href">
+    
+                <mat-form-field>
+                    <mat-label>Car Fuel</mat-label>
+                    <select matNativeControl [(ngModel)]="car.fuel" required name="fuel" #fuel required>
+    
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Electric">Electric</option>
+    
+                    </select>
+    
+                </mat-form-field>
+            </mat-card-content>
+    
+    
+    
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!carForm.valid">Save</button>
+                <a mat-button routerLink="/car-list">Cancel</a>
+            </mat-card-actions>
+        </form>
+    </mat-card>

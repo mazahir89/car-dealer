@@ -50,9 +50,4 @@ public class CarController {
     public Optional<Car> deleteCarById(@PathVariable("id") String id) {
         return carService.deleteCarById(id);
     }
-
-/*    @GetMapping(value = "/cars/{id}")
-    public Optional<Car> getCarById(@PathVariable("id") int id) {
-
-    }*/
 }

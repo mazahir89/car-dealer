@@ -18,20 +18,6 @@ public class ServerApplication {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 
-/*	@Bean
-	ApplicationRunner init(CarRepositoryI carRepositoryI) {
-		return args -> {
-			Stream.of("Ferrari", "Jaguar", "Porsche", "Lamborghini", "Bugatti",
-					"AMC Gremlin", "Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
-				Car car = new Car();
-				car.setName(name);
-				carRepositoryI.save(car);
-			});
-			carRepositoryI.findAll().forEach(System.out::println);
-		};
-
-	}*/
-
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
 		UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();

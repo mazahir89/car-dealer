@@ -2,7 +2,7 @@
     <form #carForm="ngForm" (ngSubmit)="save(carForm.value)">
         <mat-card-header>
             <mat-card-title>
-                <h2>{{car.brand ? 'Edit' : 'Add'}} Car</h2>
+                <h2>Edit Car</h2>
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -61,10 +61,5 @@
             <button mat-raised-button color="secondary" (click)="remove(car.id)" type="button">Delete</button>
             <a mat-button routerLink="/car-list">Cancel</a>
         </mat-card-actions>
-        <mat-card-footer>
-            <div class="giphy">
-                <img src="{{car.giphyUrl}}" alt="{{car.brand}} - {{ car.model }}">
-            </div>
-        </mat-card-footer>
     </form>
 </mat-card>

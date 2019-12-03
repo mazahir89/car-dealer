@@ -18,9 +18,10 @@ import {
   MatToolbarModule
 } from "@angular/material";
 import { CarEditComponent } from './components/car-edit/car-edit.component';
+import { AddCarComponent } from './components/add-car/add-car.component';
 
 @NgModule({
-  declarations: [AppComponent, CarListComponent, CarEditComponent],
+  declarations: [AppComponent, CarListComponent, CarEditComponent, AddCarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

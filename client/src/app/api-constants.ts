@@ -4,3 +4,4 @@ export const giphyApi = "http://api.giphy.com/v1/gifs/search?api_key=vrrMCy6hzTJ
 export const updateCarApi = SERVER + '/updateCar/';
 export const getCarByIdAPI = SERVER + '/findCar/';
 export const deleteCarByIdAPI = SERVER + '/deleteCar/';
+export const addCarApi = SERVER + '/addCar';
