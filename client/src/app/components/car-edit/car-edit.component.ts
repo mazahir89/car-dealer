@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Car } from "src/app/models/Car";
-import { CarService } from "src/app/services/car.service";
+import { Car } from "./../../models/Car";
+import { CarService } from "./../../services/car.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Subscription } from "rxjs";
+import { GiphyService } from './../../services/giphy.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: "app-car-edit",
@@ -11,19 +13,32 @@ import { Subscription } from "rxjs";
   styleUrls: ["./car-edit.component.css"]
 })
 export class CarEditComponent implements OnInit, OnDestroy {
+  car: any = {};
   selectedCar: Car;
   sub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private carService: CarService
+    private carService: CarService,
+    private giphyService: GiphyService
   ) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = params.id;
-      this.editCar(id);
+      if (id) {
+        this.carService.getCarById(id).subscribe((car: any) => {
+          if (car) {
+            this.car = car;
+            this.car.href = car._links.self.href;
+            this.giphyService.get(car.brand).subscribe(url => car.giphyUrl = url);
+          } else {
+            console.log(`Car with id '${id}' not found, returning to list`);
+            this.gotoList();
+          }
+        });
+      }
     });
   }
 
@@ -35,14 +50,17 @@ export class CarEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/car-list']);
   }
 
-  editCar(carId: string) {
-    this.carService.getCarById(carId).subscribe(
-      (car: Car) => {
-        this.selectedCar = car;
-      },
-      error => {
-        alert("Could not retrieve car with id: " + carId);
-      }
-    );
+  save(form: NgForm) {
+    this.sub = this.route.params.subscribe(params => {
+      const id = params.id;
+    this.carService.save(id, form).subscribe(result => {
+      this.gotoList();
+    }, error => console.error(error));
+  });
+}
+  remove(href) {
+    this.carService.remove(href).subscribe(result => {
+      this.gotoList();
+    }, error => console.error(error));
   }
 }

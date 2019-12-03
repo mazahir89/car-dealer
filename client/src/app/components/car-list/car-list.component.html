@@ -8,7 +8,7 @@
                 <h3 mat-line>Year: {{ car.year }}</h3>
                 <h3 mat-line>Km: {{ car.km }}</h3>
                 <h3 mat-line>Fuel: {{ car.fuel }}</h3>
-                <li routerLinkActive = "active"><a mat-button [routerLink]="['/car-edit', car.id]">Edit</a></li>
+                <a mat-button [routerLink]="['/car-edit', car.id]">Edit</a>
             </mat-list-item>
         </mat-list>
     </mat-card-content>
