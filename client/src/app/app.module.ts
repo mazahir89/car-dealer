@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 import { CarListComponent } from "./components/car-list/car-list.component";
 
+import { FormsModule } from '@angular/forms';
+
 import {
   MatButtonModule,
   MatCardModule,
@@ -28,7 +30,8 @@ import { CarEditComponent } from './components/car-edit/car-edit.component';
     MatCardModule,
     MatInputModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

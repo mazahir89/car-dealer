@@ -3,12 +3,14 @@
     <mat-card-content>
         <mat-list>
             <mat-list-item *ngFor="let car of cars">
-                <img mat-list-avatar src="{{car.giphyUrl}}" alt="{{car.name}} - {{ car.model }}">
+                <img mat-list-avatar src="{{car.giphyUrl}}" alt="{{car.brand}} - {{ car.model }}">
                 <h3 mat-line>{{ car.brand }} - {{ car.model }}</h3>
                 <h3 mat-line>Year: {{ car.year }}</h3>
                 <h3 mat-line>Km: {{ car.km }}</h3>
                 <h3 mat-line>Fuel: {{ car.fuel }}</h3>
+                <li routerLinkActive = "active"><a mat-button [routerLink]="['/car-edit', car.id]">Edit</a></li>
             </mat-list-item>
         </mat-list>
     </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
 </mat-card>
