@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import  { CARS_API, getCarByIdAPI, updateCarApi } from './../api-constants';
+import  { CARS_API, getCarByIdAPI, updateCarApi, deleteCarByIdAPI } from './../api-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +29,8 @@ export class CarService {
     return result;
   }
 
-  remove(href: string) {
-    return this.http.delete(href);
+  remove(carId: string) {
+    return this.http.delete(deleteCarByIdAPI + carId);
   }
   
 }

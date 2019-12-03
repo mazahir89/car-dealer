@@ -58,9 +58,11 @@ export class CarEditComponent implements OnInit, OnDestroy {
     }, error => console.error(error));
   });
 }
-  remove(href) {
-    this.carService.remove(href).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
+  remove(carId) {
+
+      this.carService.remove(carId).subscribe(result => {
+        this.gotoList();
+      }, error => console.error(error));
+
+}
 }

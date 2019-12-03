@@ -39,4 +39,10 @@ public class CarRepository {
     public Optional<Car> getCarById(String id) {
         return carRepositoryI.findById(id);
     }
+
+    public Optional<Car> deleteCarById(String id) {
+        Optional<Car> car = carRepositoryI.findById(id);
+        car.ifPresent(c -> carRepositoryI.delete(c));
+        return car;
+    }
 }

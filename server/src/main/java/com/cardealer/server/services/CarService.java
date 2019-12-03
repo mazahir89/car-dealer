@@ -30,4 +30,8 @@ public class CarService {
     public Optional<Car> getCarById(String id) {
         return carRepository.getCarById(id);
     }
+
+    public Optional<Car> deleteCarById(String id) {
+        return carRepository.deleteCarById(id);
+    }
 }

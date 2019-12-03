@@ -46,6 +46,11 @@ public class CarController {
         return carService.getCarById(id);
     }
 
+    @DeleteMapping("/deleteCar/{id}")
+    public Optional<Car> deleteCarById(@PathVariable("id") String id) {
+        return carService.deleteCarById(id);
+    }
+
 /*    @GetMapping(value = "/cars/{id}")
     public Optional<Car> getCarById(@PathVariable("id") int id) {
 
