@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { CarEditComponent } from './components/car-edit/car-edit.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { AddCarComponent } from './components/add-car/add-car.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/car-list', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {
     path: 'car-list',
     component: CarListComponent
@@ -18,7 +20,8 @@ const routes: Routes = [
   {
     path: 'add-car',
     component: AddCarComponent
-  }
+  },
+  {path: 'logout', component: LoginComponent}
 ];
 
 @NgModule({

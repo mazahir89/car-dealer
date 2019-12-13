@@ -1,4 +1,5 @@
 <mat-card>
+    <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
     <mat-card-title>Car List</mat-card-title>
     <mat-card-content>
         <mat-list>
