@@ -11,11 +11,13 @@ export class GiphyService {
   constructor(private http: HttpClient) { }
 
   get(searchTerm) {
-    const apiLink = giphyApi + searchTerm + " sport automobile";
+    const apiLink = giphyApi + searchTerm + "sport automobile";
 
     
 
-    return this.http.get(apiLink).pipe(map((response: any) => {
+    return this.http.get(apiLink, {headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }).pipe(map((response: any) => {
+      
+
       if(response.data.length > 0) {
         console.log(response.data[0]);
         return response.data[0].images.downsized_medium.url;

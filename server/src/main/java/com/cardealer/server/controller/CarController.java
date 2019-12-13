@@ -1,5 +1,6 @@
 package com.cardealer.server.controller;
 
+import com.cardealer.server.bean.AuthenticationBean;
 import com.cardealer.server.entity.Car;
 import com.cardealer.server.entity.CarUpdatePayload;
 import com.cardealer.server.services.CarService;
@@ -18,6 +19,10 @@ public class CarController {
     @Autowired
     private CarService carService;
 
+    @GetMapping(path = "/basicauth")
+    public AuthenticationBean basicAuth() {
+        return new AuthenticationBean("You are authenticated");
+    }
 
     @GetMapping("/cars")
     public Collection<Car> cars() {

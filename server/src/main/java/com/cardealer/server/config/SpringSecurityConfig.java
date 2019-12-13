@@ -16,5 +16,5 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll().anyRequest()
                 .authenticated().and()
                 .httpBasic();
-    }
+}
 }
