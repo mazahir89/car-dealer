@@ -12,6 +12,7 @@ export class AuthService {
 
   public username: String;
   public password: String;
+  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false') ;
 
   constructor(private http: HttpClient) {
 
@@ -40,9 +41,15 @@ export class AuthService {
     this.password = null;
   }
 
+  setLoggedIn(value: boolean) {
+    this.loggedInStatus = value;
+    localStorage.setItem('loggedIn', 'true');
+  }
+
   isUserLoggedIn() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     if (user === null) return false
+    //return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString());
     return true
   }
 

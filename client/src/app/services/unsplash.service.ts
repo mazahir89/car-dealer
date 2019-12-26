@@ -20,6 +20,7 @@ export class UnsplashService {
 
       if(response.results.length > 0) {
         console.log("Response: " + JSON.stringify(response.results[0].urls.small));
+        return response.results[0].urls.small;
       }
        else {
          return 'https://media.giphy.com/media/MSU9sITGoHWMGGVn9n/giphy.gif' // 404 giphy
