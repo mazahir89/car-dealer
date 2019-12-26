@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { GiphyService } from './../../services/giphy.service';
 import { NgForm } from '@angular/forms';
+import { UnsplashService } from 'src/app/services/unsplash.service';
 
 @Component({
   selector: "app-car-edit",
@@ -21,7 +22,8 @@ export class CarEditComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private carService: CarService,
-    private giphyService: GiphyService
+    private giphyService: GiphyService,
+    private unsplashService: UnsplashService
   ) {}
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
           if (car) {
             this.car = car;
             this.car.href = car._links.self.href;
-            this.giphyService.get(car.brand).subscribe(url => car.giphyUrl = url);
+            this.unsplashService.searchPhoto(car.brand).subscribe(url => car.unsplashUrl = url);
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
             this.gotoList();

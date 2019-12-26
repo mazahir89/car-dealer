@@ -15,14 +15,12 @@ export class GiphyService {
 
     
 
-    return this.http.get(apiLink, {headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }).pipe(map((response: any) => {
+    return this.http.get(apiLink, {headers: {'Content-Type': 'application/json',  'Access-Control-Allow-Origin': '*' } }).pipe(map((response: any) => {
       
 
       if(response.data.length > 0) {
         console.log(response.data[0]);
         return response.data[0].images.downsized_medium.url;
-        
-        
       }
       else {
         return 'https://media.giphy.com/media/MSU9sITGoHWMGGVn9n/giphy.gif' // 404 giphy

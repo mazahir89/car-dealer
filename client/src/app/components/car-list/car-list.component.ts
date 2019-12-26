@@ -4,6 +4,7 @@ import { GiphyService } from "./../../services/giphy.service";
 import { Car } from './../../models/Car';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/login/auth.service';
+import { UnsplashService } from 'src/app/services/unsplash.service';
 
 @Component({
   selector: "app-car-list",
@@ -21,7 +22,8 @@ export class CarListComponent implements OnInit {
     private giphyService: GiphyService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private unsplashService: UnsplashService
   ) {}
 
   ngOnInit() {
@@ -37,9 +39,9 @@ export class CarListComponent implements OnInit {
     return this.carService.getAllCars().subscribe(cars => {
       this.cars = cars;
       for (const car of this.cars) {
-        this.giphyService
-          .get(car.brand + " - " + car.model)
-          .subscribe(url => (car.giphyUrl = url));
+        this.unsplashService
+          .searchPhoto(car.brand + " - " + car.model)
+          .subscribe(url => (car.unsplashUrl = url));
       }
     });
   }
