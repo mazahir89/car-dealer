@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Car } from "./../../models/Car";
 import { CarService } from "./../../services/car.service";
 import { ActivatedRoute, Router } from "@angular/router";
-
 import { Subscription } from "rxjs";
-import { GiphyService } from './../../services/giphy.service';
 import { NgForm } from '@angular/forms';
 import { UnsplashService } from 'src/app/services/unsplash.service';
 
@@ -22,7 +20,6 @@ export class CarEditComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private carService: CarService,
-    private giphyService: GiphyService,
     private unsplashService: UnsplashService
   ) {}
 

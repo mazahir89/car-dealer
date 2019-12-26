@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CarService } from "./../../services/car.service";
-import { GiphyService } from "./../../services/giphy.service";
 import { Car } from './../../models/Car';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/login/auth.service';
 import { UnsplashService } from 'src/app/services/unsplash.service';
 
@@ -19,9 +17,6 @@ export class CarListComponent implements OnInit {
 
   constructor(
     private carService: CarService,
-    private giphyService: GiphyService,
-    private route: ActivatedRoute,
-    private router: Router,
     private authService: AuthService,
     private unsplashService: UnsplashService
   ) {}
