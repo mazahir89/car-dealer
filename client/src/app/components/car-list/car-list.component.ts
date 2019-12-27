@@ -3,6 +3,7 @@ import { CarService } from "./../../services/car.service";
 import { Car } from './../../models/Car';
 import { AuthService } from 'src/app/services/login/auth.service';
 import { UnsplashService } from 'src/app/services/unsplash.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-car-list",
@@ -18,17 +19,24 @@ export class CarListComponent implements OnInit {
   constructor(
     private carService: CarService,
     private authService: AuthService,
-    private unsplashService: UnsplashService
+    private unsplashService: UnsplashService,
+    private router: Router
   ) {}
 
-  ngOnInit() {
-    this.getAllCars();
-    this.isLoggedIn = this.authService.isUserLoggedIn();
-    console.log('menu ->' + this.isLoggedIn);
+  async ngOnInit() {
+    // this.isLoggedIn = this.authService.isUserLoggedIn();
+    // console.log('menu ->' + this.isLoggedIn);
+    
+   this.getAllCars();
   }
 
   handleLogout() {
     this.authService.logout();
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
   getAllCars() {
     return this.carService.getAllCars().subscribe(cars => {
@@ -38,6 +46,10 @@ export class CarListComponent implements OnInit {
           .searchPhoto(car.brand + " - " + car.model)
           .subscribe(url => (car.unsplashUrl = url));
       }
-    });
+    },
+    err => {
+      console.log(err);
+    }
+    );
   }
 }

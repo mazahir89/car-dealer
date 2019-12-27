@@ -1,5 +1,8 @@
 <mat-card>
-    <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+        <div class="button-row">
+                <a mat-flat-button color="primary" (click)="logout()">Logout</a>
+              </div>
+    <!-- <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=logout()>Logout</a> -->
     <mat-card-title>Car List</mat-card-title>
     <mat-card-content>
         <mat-list>

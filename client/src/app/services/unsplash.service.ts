@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { unsplashSearchPhoto, unsplashClient_id } from '../api-constants';
-import { map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class UnsplashService {
 
     return this.http.get(apiLink + "&client_id=" + unsplashClient_id).pipe(map((response: any) => {
       
-
+      
       if(response.results.length > 0) {
         console.log("Response: " + JSON.stringify(response.results[0].urls.small));
         return response.results[0].urls.small;
