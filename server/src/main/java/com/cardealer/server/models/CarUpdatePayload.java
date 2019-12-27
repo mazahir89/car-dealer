@@ -1,4 +1,4 @@
-package com.cardealer.server.entity;
+package com.cardealer.server.models;
 
 public class CarUpdatePayload {
 

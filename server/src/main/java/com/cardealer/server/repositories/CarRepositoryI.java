@@ -1,6 +1,6 @@
-package com.cardealer.server.repository;
+package com.cardealer.server.repositories;
 
-import com.cardealer.server.entity.Car;
+import com.cardealer.server.models.Car;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

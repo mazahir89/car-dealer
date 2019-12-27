@@ -1,7 +1,7 @@
-package com.cardealer.server.repository;
+package com.cardealer.server.repositories;
 
-import com.cardealer.server.entity.Car;
-import com.cardealer.server.entity.CarUpdatePayload;
+import com.cardealer.server.models.Car;
+import com.cardealer.server.models.CarUpdatePayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

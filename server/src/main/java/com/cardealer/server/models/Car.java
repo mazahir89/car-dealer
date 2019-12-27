@@ -1,4 +1,4 @@
-package com.cardealer.server.entity;
+package com.cardealer.server.models;
 
 import lombok.NonNull;
 import org.springframework.data.mongodb.core.mapping.Document;

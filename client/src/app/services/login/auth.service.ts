@@ -53,6 +53,10 @@ export class AuthService {
     return true
   }
 
+  get isLoggedIn() {
+    return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString());
+  }
+
   getLoggedInUserName() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     if (user === null) return ''
