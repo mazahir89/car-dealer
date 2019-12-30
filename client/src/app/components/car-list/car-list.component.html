@@ -1,9 +1,8 @@
 <mat-card>
-        <div class="button-row">
-                <a mat-flat-button color="primary" (click)="logout()">Logout</a>
-              </div>
+
     <!-- <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=logout()>Logout</a> -->
     <mat-card-title>Car List</mat-card-title>
+    <button mat-flat-button color="primary" (click)="logout()">Logout</button>
     <mat-card-content>
         <mat-list>
             <mat-list-item *ngFor="let car of cars">
@@ -17,4 +16,5 @@
         </mat-list>
     </mat-card-content>
     <button mat-fab color="primary" [routerLink]="['/add-car']">Add</button>
+    
 </mat-card>
