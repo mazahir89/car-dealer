@@ -16,15 +16,6 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(private router: Router) {}
 
    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   request = request.clone({
-    //     setHeaders: {
-    //       'Authorization': 'Bearer ' + token
-    //     }
-    //   });
-    // }
     if (!request.headers.has('Content-Type')) {
       request = request.clone({
         setHeaders: {

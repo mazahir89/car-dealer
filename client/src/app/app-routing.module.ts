@@ -9,7 +9,6 @@ import { LoginComponent } from './auth/login/login.component';
 
 
 const routes: Routes = [
-
   {
     path: '',
     redirectTo: 'car-list',
