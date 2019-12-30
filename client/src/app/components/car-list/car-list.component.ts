@@ -24,8 +24,6 @@ export class CarListComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    // this.isLoggedIn = this.authService.isUserLoggedIn();
-    // console.log('menu ->' + this.isLoggedIn);
     
    this.getAllCars();
   }

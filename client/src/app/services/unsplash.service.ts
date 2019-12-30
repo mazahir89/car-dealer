@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { unsplashSearchPhoto, unsplashClient_id } from '../api-constants';
+import { unsplashSearchPhoto } from '../api-constants';
 import { map, retry } from 'rxjs/operators';
+import { unsplashClient_id } from '../unsplash-api-keys';
 
 @Injectable({
   providedIn: 'root'

@@ -15,8 +15,6 @@ const routes: Routes = [
     redirectTo: 'car-list',
     pathMatch: 'full'
   },
-  // {path: 'login', component: LoginComponent},
-  // {path: '', component: LoginComponent},
   {
     path: 'car-list',
     canActivate: [AuthGuard],
@@ -40,7 +38,6 @@ const routes: Routes = [
     component: RegisterComponent,
     data: { title: 'Register' }
   }
-  // {path: 'logout', component: LoginComponent}
 ];
 
 @NgModule({
