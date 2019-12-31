@@ -10,3 +10,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.car-img {
+    width: 40%;
+}
+
+.container {
+    width: 480px;
+}
